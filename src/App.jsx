@@ -1,9 +1,11 @@
 import { NavLink, Route, Routes } from "react-router-dom"
-import AboutPage from './pages/AboutPage'
+
 import HomePage from './pages/HomePage'
-import ProductDetailsPage from './pages/ProductDetailsPage'
-import ProductCategory from './components/ProductCategory'
+import AboutPage from './pages/AboutPage'
 import ProductList from './components/ProductList'
+import ProductForm from "./components/ProductForm"
+import ProductCategory from './components/ProductCategory'
+import ProductDetailsPage from './pages/ProductDetailsPage'
 import NotFoundPage from './pages/NotFoundPage'
 
 
@@ -18,14 +20,16 @@ function App() {
         <NavLink to="/about">About</NavLink>
         <NavLink to="/categories">Categories</NavLink>
         <NavLink to="/products">All Products</NavLink>
+        <NavLink to="/products/create">Add Product</NavLink>
       </nav>
 
       <Routes>
         <Route path="/" element={<HomePage />}/>
         <Route path="/about" element={<AboutPage />}/>
-        <Route path="/productDetails" element={<ProductDetailsPage />}/>
-        <Route path="/categories" element={<ProductCategory />}/>
         <Route path="/products" element={<ProductList />}/>
+        <Route path="/products/create" element={<ProductForm />}/>
+        <Route path="/categories" element={<ProductCategory />}/>
+        <Route path="/productDetails" element={<ProductDetailsPage />}/>
         <Route path="*" element={<NotFoundPage />}/>
       </Routes>
     </>

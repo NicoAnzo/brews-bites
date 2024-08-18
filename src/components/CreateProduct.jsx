@@ -31,39 +31,50 @@ function CreateProduct (props) {
             <h3>Add Product</h3>
         
             <form onSubmit={handleSubmit}>
-                <label>Name:</label>
-                <input
-                    type="text"
-                    name="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-        
-                <label>Description:</label>
-                <textarea
-                    type="text"
-                    name="description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                />
-
-                <label>Price:</label>
+                <label>Name:
                     <input
-                    type="number"
-                    name="price"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                />
+                        type="text"
+                        name="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                    />
+                </label>
 
-                <label>Category:</label>
+                <label>Description:
+                    <textarea
+                        type="text"
+                        name="description"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                </label>
+
+                <label>Price:
                     <input
-                    type="text"
-                    name="category"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                />
+                        type="number"
+                        name="price"
+                        value={price}
+                        onChange={(e) => setPrice(e.target.value)}
+                        required
+                    />
+                </label>
 
-        
+                <label>Category:
+                    <select
+                        name="category"
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                        required
+                    >
+                        <option value="" disabled>Select a category</option>
+                        <option value="hot drinks">Hot Drinks</option>
+                        <option value="cold drinks">Cold Drinks</option>
+                        <option value="pastries">Pastries</option>
+                        <option value="sandwiches">Sandwiches</option>
+                    </select>
+                </label>
+
                 <button type="submit">Submit</button>
             </form>
         </div>

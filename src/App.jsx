@@ -16,8 +16,8 @@ function App () {
       <h1>Brews & Bites</h1>
 
       <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/products">All Products</NavLink>
+        <span><NavLink to="/">Home</NavLink></span>
+        <span><NavLink to="/products">All Products</NavLink></span>
 
         <div className="dropdown">
           <span className="dropdown-trigger">Categories</span>
@@ -29,8 +29,8 @@ function App () {
           </div>
         </div>
 
-        <NavLink to="/products/create">Add Product</NavLink>
-        <NavLink to="/about">About</NavLink>
+        <span><NavLink to="/products/create">Add Product</NavLink></span>
+        <span><NavLink to="/about">About</NavLink></span>
       </nav>
 
       <Routes>

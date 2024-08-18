@@ -6,6 +6,7 @@ import axios from "axios";
 function CreateProduct() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
 
@@ -14,7 +15,7 @@ function CreateProduct() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newProduct = { name, description, price, category };
+    const newProduct = { name, description, quantity, price, category };
     axios
       .post(`${API_URL}/products`, newProduct)
       .then((response) => {
@@ -28,8 +29,8 @@ function CreateProduct() {
       <h3>Add Product</h3>
 
       <form onSubmit={handleSubmit}>
-        <label>
-          Name:
+
+        <label>Name:
           <input
             type="text"
             name="name"
@@ -39,8 +40,7 @@ function CreateProduct() {
           />
         </label>
 
-        <label>
-          Description:
+        <label>Description:
           <textarea
             type="text"
             name="description"
@@ -49,8 +49,17 @@ function CreateProduct() {
           />
         </label>
 
-        <label>
-          Price:
+        <label>Quantity:
+          <input
+            type="number"
+            name="quantity"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+            required
+          />
+        </label>
+
+        <label>Price:
           <input
             type="number"
             name="price"
@@ -60,17 +69,14 @@ function CreateProduct() {
           />
         </label>
 
-        <label>
-          Category:
+        <label>Category:
           <select
             name="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             required
           >
-            <option value="" disabled>
-              Select a category
-            </option>
+            <option value="" disabled>Select a category</option>
             <option value="hot drinks">Hot Drinks</option>
             <option value="cold drinks">Cold Drinks</option>
             <option value="pastries">Pastries</option>

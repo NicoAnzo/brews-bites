@@ -9,6 +9,7 @@ function EditProduct() {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [quantity, setQuantity] = useState("");
     const [price, setPrice] = useState("");
     const [category, setCategory] = useState("");
 
@@ -21,6 +22,7 @@ function EditProduct() {
                 const singleProduct = response.data;
                 setName(singleProduct.name);
                 setDescription(singleProduct.description);
+                setQuantity(singleProduct.quantity);
                 setPrice(singleProduct.price);
                 setCategory(singleProduct.category)
             })
@@ -31,7 +33,7 @@ function EditProduct() {
     const handleSubmit = (e) => {                        
         e.preventDefault();
         
-        const newProduct = { name, description, price, category };
+        const newProduct = { name, description, quantity, price, category };
 
         axios.put(`${API_URL}/products`, newProduct)
             .then((response) => {
@@ -40,15 +42,7 @@ function EditProduct() {
             .catch((error) => console.log(error));
     };
 
-    const deleteProduct = () => {                    
-
-        axios.delete(`${API_URL}/products/${productId}`)
-            .then(() => {
-                navigate("/products");
-            })
-            .catch((err) => console.log(err));
-    };  
-
+    
     return (
         <div>
             <h3>Add Product</h3>
@@ -70,6 +64,16 @@ function EditProduct() {
                         name="description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
+                    />
+                </label>
+
+                <label>Quantity:
+                    <input
+                        type="number"
+                        name="quantity"
+                        value={quantity}
+                        onChange={(e) => setQuantity(e.target.value)}
+                        required
                     />
                 </label>
 
@@ -99,8 +103,6 @@ function EditProduct() {
                 </label>
 
                 <button type="submit">Update</button>
-
-                <button onClick={deleteProduct}>Delete Product</button>
 
             </form>
         </div>

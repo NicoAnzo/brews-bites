@@ -10,7 +10,7 @@ import ProductDetailsPage from "./pages/ProductDetailsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App () {
-  
+
   return (
     <>
       <h1>Brews & Bites</h1>

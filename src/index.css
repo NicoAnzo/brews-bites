@@ -16,65 +16,68 @@ body {
   text-align: center;
 }
 
-a, .dropdown-trigger {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: none;
-}
-
-span {
-  font-size: 1.11em;
-}
-
 nav {
   display: flex;
   justify-content: center;
   gap: 15px;
+  padding: 1em;
+  background-color: #f8f8f8; 
+  border-bottom: 1px solid #ccc; 
 }
 
 nav a, .dropdown-trigger {
-  border: 1px solid black;
-  padding: 1em;
-  margin: 1em;
+  font-weight: 500;
+  color: #333; 
+  text-decoration: none;
+  border: 1px solid #ccc; 
+  padding: 0.6em 1.2em; 
+  margin: 0; 
   text-align: center;
   cursor: pointer;
-  background-color: blanchedalmond; 
+  background-color: white; 
+  border-radius: 5px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
 nav a:hover, .dropdown-trigger:hover {
-  background-color: aquamarine;
+  background-color: #e0e0e0; 
+  border-color: #999; 
 }
 
 nav a.active {
   font-weight: bold;
-  color: red;
+  color: #646cff; 
+  background-color: #f0f0f0; 
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
-  margin-top: 2em;
+  margin-top: 0; 
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: white;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   z-index: 1;
   text-align: center;
   min-width: 160px; 
+  border-radius: 5px; 
 }
 
 .dropdown-content a {
-  color: black;
+  color: #333; 
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  border-bottom: 1px solid #eee; 
 }
 
 .dropdown-content a:hover {
-  background-color: aquamarine;
+  background-color: #e0e0e0; 
 }
 
 .dropdown:hover .dropdown-content {
@@ -84,6 +87,11 @@ nav a.active {
 h1 {
   font-size: 2em;
   line-height: 1.1;
+}
+
+h3 {
+  color: #333;
+  margin-bottom: 20px;
 }
 
 button {
@@ -105,4 +113,53 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.create-product-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.create-product-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.create-product-container label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.create-product-container input,
+.create-product-container textarea,
+.create-product-container select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.create-product-container textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+span {
+  font-size: 1.11em;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: none;
 }

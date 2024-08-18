@@ -19,17 +19,16 @@ function CreateProduct() {
     axios
       .post(`${API_URL}/products`, newProduct)
       .then((response) => {
-        navigate("/projects");
+        navigate("/products");
       })
       .catch((error) => console.log(error));
   };
 
   return (
-    <div>
+    <div className="create-product-container">
       <h3>Add Product</h3>
 
       <form onSubmit={handleSubmit}>
-
         <label>Name:
           <input
             type="text"
@@ -42,7 +41,6 @@ function CreateProduct() {
 
         <label>Description:
           <textarea
-            type="text"
             name="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}

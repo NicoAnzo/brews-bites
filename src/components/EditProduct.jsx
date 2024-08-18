@@ -1,12 +1,9 @@
-// src/pages/EditProjectPage.jsx
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { API_URL } from '../config/api'
 import axios from "axios";
 
-
 function EditProduct() {
-
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState("");
@@ -15,8 +12,8 @@ function EditProduct() {
 
     const { productId } = useParams();
     const navigate = useNavigate();
-    
-    useEffect(() => {           
+
+    useEffect(() => {
         axios.get(`${API_URL}/products/${productId}`)
             .then((response) => {
                 const singleProduct = response.data;
@@ -24,29 +21,27 @@ function EditProduct() {
                 setDescription(singleProduct.description);
                 setQuantity(singleProduct.quantity);
                 setPrice(singleProduct.price);
-                setCategory(singleProduct.category)
+                setCategory(singleProduct.category);
             })
             .catch((error) => console.log(error));
-        
     }, [productId]);
 
-    const handleSubmit = (e) => {                        
+    const handleSubmit = (e) => {
         e.preventDefault();
-        
-        const newProduct = { name, description, quantity, price, category };
 
-        axios.put(`${API_URL}/products`, newProduct)
+        const updatedProduct = { name, description, quantity, price, category };
+
+        axios.put(`${API_URL}/products/${productId}`, updatedProduct)
             .then((response) => {
-                navigate(`/projects/${productId}`);
+                navigate(`/products/${productId}`);
             })
             .catch((error) => console.log(error));
     };
 
-    
     return (
-        <div>
-            <h3>Add Product</h3>
-        
+        <div className="create-product-container">
+            <h3>Edit Product</h3>
+
             <form onSubmit={handleSubmit}>
                 <label>Name:
                     <input
@@ -60,7 +55,6 @@ function EditProduct() {
 
                 <label>Description:
                     <textarea
-                        type="text"
                         name="description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
@@ -103,11 +97,9 @@ function EditProduct() {
                 </label>
 
                 <button type="submit">Update</button>
-
             </form>
         </div>
     );
 }
 
-    
 export default EditProduct;

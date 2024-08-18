@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { API_URL } from "../config/api";
 import axios from "axios";
 
-function ProductList() {
-
+function ProductList () {
+    
     const [products, setProducts] = useState(null);
     const [error, setError] = useState(null); 
     const [loading, setLoading] = useState(true);  
@@ -34,16 +34,23 @@ function ProductList() {
     }
 
     return (
-        <div>
-            {products && products.map((product) => {
-                return (
-                    <div key={product.id}>
-                        <Link to={`/products/${product.id}`}>
-                            <h3>{product.name}</h3>
-                        </Link>
-                    </div>
-                );
-            })}
+        <div className="product-list-container">
+            {products && products.length > 0 
+            ? (
+                <div className="product-grid">
+                    {products.map((product) => (
+                        <div key={product.id} className="product-card">
+                            <Link to={`/products/${product.id}`}>
+                                <h3>{product.name}</h3>
+                                <p>{product.price} €</p>
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+            ) 
+            : (
+                <p>No products available.</p>
+            )}
         </div>
     );
 }

@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { API_URL } from "../config/api";
 import axios from "axios";
 
-function CreateProduct() {
+function CreateProduct () {
+  
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("");

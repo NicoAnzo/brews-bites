@@ -4,9 +4,10 @@ import axios from "axios";
 import { API_URL } from "../config/api";
 
 function ProductCategoryList () {
+
     const { category } = useParams();
-    const [products, setProducts] = useState([]); 
-    const [filteredProducts, setFilteredProducts] = useState([]); 
+    const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -33,7 +34,7 @@ function ProductCategoryList () {
     };
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <p>Loading products...</p>;
     }
 
     if (error) {
@@ -41,26 +42,25 @@ function ProductCategoryList () {
     }
 
     return (
-      <div>
-        <h2>Category: {category}</h2>
-        {filteredProducts.length > 0 
-        ? (
-          <div>
-            {filteredProducts.map((product) => (
-
-              <div key={product.id}>
-                <Link to={`/products/${product.id}`}>
-                  <h3>{product.name}</h3>
-                </Link>
-              </div>
-              
-            ))}
-          </div>
-        ) 
-        : (
-          <p>No products found in this category.</p>
-        )}
-      </div>
+        <div className="product-category-container">
+            <h2>Category: {category}</h2>
+            {filteredProducts.length > 0 
+            ? (
+                <div className="product-grid">
+                    {filteredProducts.map((product) => (
+                        <div key={product.id} className="product-card">
+                            <Link to={`/products/${product.id}`}>
+                                <h3>{product.name}</h3>
+                                <p>{product.price} €</p>
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+            ) 
+            : (
+                <p>No products found in this category.</p>
+            )}
+        </div>
     );
 }
 

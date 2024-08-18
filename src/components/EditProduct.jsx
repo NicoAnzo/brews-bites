@@ -3,7 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { API_URL } from '../config/api'
 import axios from "axios";
 
-function EditProduct() {
+function EditProduct () {
+    
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState("");
@@ -14,6 +15,7 @@ function EditProduct() {
     const navigate = useNavigate();
 
     useEffect(() => {
+
         axios.get(`${API_URL}/products/${productId}`)
             .then((response) => {
                 const singleProduct = response.data;

@@ -19,7 +19,17 @@ function App() {
       <nav>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/products">All Products</NavLink>
-        <NavLink to="/categories">Categories</NavLink>
+
+        <div className="dropdown">
+          <NavLink to="/categories" >Categories</NavLink>
+          <div className="dropdown-content">
+            <NavLink to="/categories/hot drinks">Hot Drinks</NavLink>
+            <NavLink to="/categories/cold drinks">Cold Drinks</NavLink>
+            <NavLink to="/categories/pastries">Pastries</NavLink>
+            <NavLink to="/categories/sandwiches">Sandwiches</NavLink>
+          </div>
+        </div>
+
         <NavLink to="/products/create">Add Product</NavLink>
         <NavLink to="/about">About</NavLink>
       </nav>
@@ -30,7 +40,7 @@ function App() {
         <Route path="/products" element={<ProductList />}/>
         <Route path="/products/create" element={<CreateProduct />}/>
         <Route path="/products/edit/:productId" element={<EditProduct />}/>
-        <Route path="/categories" element={<ProductCategory />}/>
+        <Route path="/categories/:category" element={<ProductCategory />}/>
         <Route path="/products/:productId" element={<ProductDetailsPage />}/>
         <Route path="*" element={<NotFoundPage />}/>
       </Routes>

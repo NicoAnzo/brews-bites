@@ -5,7 +5,7 @@ import { API_URL } from '../config/api'
 import axios from "axios";
 
 
-function EditProduct(props) {
+function EditProduct() {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");

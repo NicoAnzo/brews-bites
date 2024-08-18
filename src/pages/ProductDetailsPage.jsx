@@ -4,7 +4,7 @@ import { API_URL } from "../config/api";
 import axios from "axios";
 
 
-function ProductDetailsPage (props) {
+function ProductDetailsPage () {
 
     const [product, setProduct] = useState(null);
 

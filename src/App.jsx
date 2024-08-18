@@ -5,7 +5,7 @@ import AboutPage from './pages/AboutPage'
 import ProductList from './components/ProductList'
 import CreateProduct from './components/CreateProduct'
 import EditProduct from './components/EditProduct'
-import ProductCategory from './components/ProductCategory'
+import ProductCategoryList from './components/ProductCategoryList'
 import ProductDetailsPage from './pages/ProductDetailsPage'
 import NotFoundPage from './pages/NotFoundPage'
 
@@ -40,7 +40,7 @@ function App() {
         <Route path="/products" element={<ProductList />}/>
         <Route path="/products/create" element={<CreateProduct />}/>
         <Route path="/products/edit/:productId" element={<EditProduct />}/>
-        <Route path="/categories/:category" element={<ProductCategory />}/>
+        <Route path="/categories/:category" element={<ProductCategoryList />}/>
         <Route path="/products/:productId" element={<ProductDetailsPage />}/>
         <Route path="*" element={<NotFoundPage />}/>
       </Routes>

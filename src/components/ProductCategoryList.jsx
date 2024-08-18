@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../config/api";
 
-function ProductCategory() {
+function ProductCategoryList () {
     const { category } = useParams();
     const [products, setProducts] = useState([]); 
     const [filteredProducts, setFilteredProducts] = useState([]); 
@@ -41,23 +41,27 @@ function ProductCategory() {
     }
 
     return (
-        <div>
-            <h2>Category: {category}</h2>
-            {filteredProducts.length > 0 ? (
-                <div>
-                    {filteredProducts.map(product => (
-                        <div key={product.id} >
-                            <Link to={`/products/${product.id}`}>
-                                <h3>{product.name}</h3>
-                            </Link>
-                        </div>
-                    ))}
-                </div>
-            ) : (
-                <p>No products found in this category.</p>
-            )}
-        </div>
+      <div>
+        <h2>Category: {category}</h2>
+        {filteredProducts.length > 0 
+        ? (
+          <div>
+            {filteredProducts.map((product) => (
+
+              <div key={product.id}>
+                <Link to={`/products/${product.id}`}>
+                  <h3>{product.name}</h3>
+                </Link>
+              </div>
+              
+            ))}
+          </div>
+        ) 
+        : (
+          <p>No products found in this category.</p>
+        )}
+      </div>
     );
 }
 
-export default ProductCategory;
+export default ProductCategoryList;

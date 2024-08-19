@@ -33,7 +33,7 @@ function ProductList () {
     }, []);
 
     const handleImageError = (e, category) => {
-        console.log(`Error loading image for category: ${category}`);
+
         switch (category) {
             case "hot drinks":
                 e.target.src = defaultImageHotDrinks;

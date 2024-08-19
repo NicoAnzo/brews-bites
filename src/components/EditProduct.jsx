@@ -90,9 +90,10 @@ function EditProduct () {
                     <input
                         type="number"
                         name="price"
-                        min={0.1}
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
+                        min={0.01}  
+                        step="0.01"  
                         required
                     />
                 </label>

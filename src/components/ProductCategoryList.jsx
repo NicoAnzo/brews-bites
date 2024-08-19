@@ -41,7 +41,6 @@ function ProductCategoryList () {
     };
 
     const handleImageError = (e) => {
-        console.log(`Error loading image for category: ${category}`);
 
         switch (category) {
             case "hot drinks":

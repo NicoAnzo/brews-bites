@@ -6,6 +6,7 @@ import axios from "axios";
 function CreateProduct () {
   
   const [name, setName] = useState("");
+  const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
@@ -16,7 +17,7 @@ function CreateProduct () {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newProduct = { name, description, quantity, price, category };
+    const newProduct = { name, image, description, quantity, price, category };
     axios
       .post(`${API_URL}/products`, newProduct)
       .then((response) => {
@@ -34,8 +35,20 @@ function CreateProduct () {
           <input
             type="text"
             name="name"
+            placeholder="Espresso"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </label>
+
+        <label>Image URL:
+          <input
+            type="url"
+            name="image"
+            placeholder="https://example.com/path/to/placeholder-image.jpg"
+            value={image}
+            onChange={(e) => { setImage(e.target.value) }}
             required
           />
         </label>
@@ -43,6 +56,7 @@ function CreateProduct () {
         <label>Description:
           <textarea
             name="description"
+            placeholder="Espresso is a shot of concentrated coffee made..."
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -52,6 +66,8 @@ function CreateProduct () {
           <input
             type="number"
             name="quantity"
+            placeholder="120"
+            min={1}
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
             required
@@ -62,6 +78,8 @@ function CreateProduct () {
           <input
             type="number"
             name="price"
+            placeholder="2.3"
+            min={0.1}
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             required

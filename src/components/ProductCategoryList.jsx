@@ -1,7 +1,14 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { API_URL } from "../config/api";
+
+import defaultImageHotDrinks from "../../images/default-image-hot-drinks.webp";
+import defaulImageColdDrinks from "../../images/default-image-cold-drinks.webp";
+import defaultImagePastries from "../../images/default-image-pastries.jpeg";
+import defaulImageSandwiches from "../../images/default-image-sandwiches.jpeg";
+
+import axios from "axios";
+
 
 function ProductCategoryList () {
 
@@ -33,6 +40,27 @@ function ProductCategoryList () {
         setFilteredProducts(filtered);
     };
 
+    const handleImageError = (e) => {
+        console.log(`Error loading image for category: ${category}`);
+
+        switch (category) {
+            case "hot drinks":
+                e.target.src = defaultImageHotDrinks;
+                break;
+            case "cold drinks":
+                e.target.src = defaulImageColdDrinks;
+                break;
+            case "pastries":
+                e.target.src = defaultImagePastries;
+                break;
+            case "sandwiches":
+                e.target.src = defaulImageSandwiches;
+                break;
+            default:
+                e.target.src = defaultImageHotDrinks; 
+        }
+    };
+
     if (loading) {
         return <p>Loading products...</p>;
     }
@@ -51,6 +79,7 @@ function ProductCategoryList () {
                         <div key={product.id} className="product-card">
                             <Link to={`/products/${product.id}`}>
                                 <h3>{product.name}</h3>
+                                <img src={product.image} alt="product image" onError={handleImageError} />
                                 <p>{product.price} €</p>
                             </Link>
                         </div>

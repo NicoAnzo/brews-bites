@@ -6,6 +6,7 @@ import axios from "axios";
 function EditProduct () {
     
     const [name, setName] = useState("");
+    const [image, setImage] = useState("");
     const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState("");
     const [price, setPrice] = useState("");
@@ -20,6 +21,7 @@ function EditProduct () {
             .then((response) => {
                 const singleProduct = response.data;
                 setName(singleProduct.name);
+                setImage(singleProduct.image);
                 setDescription(singleProduct.description);
                 setQuantity(singleProduct.quantity);
                 setPrice(singleProduct.price);
@@ -31,7 +33,7 @@ function EditProduct () {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const updatedProduct = { name, description, quantity, price, category };
+        const updatedProduct = { name, image, description, quantity, price, category };
 
         axios.put(`${API_URL}/products/${productId}`, updatedProduct)
             .then((response) => {
@@ -55,6 +57,16 @@ function EditProduct () {
                     />
                 </label>
 
+                <label>Image URL:
+                    <input
+                        type="url"
+                        name="image"
+                        value={image}
+                        onChange={(e) => { setImage(e.target.value) }}
+                        required
+                    />
+                </label>
+
                 <label>Description:
                     <textarea
                         name="description"
@@ -67,6 +79,7 @@ function EditProduct () {
                     <input
                         type="number"
                         name="quantity"
+                        min={1}
                         value={quantity}
                         onChange={(e) => setQuantity(e.target.value)}
                         required
@@ -77,6 +90,7 @@ function EditProduct () {
                     <input
                         type="number"
                         name="price"
+                        min={0.1}
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                         required

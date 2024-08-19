@@ -8,30 +8,33 @@ import EditProduct from "./components/EditProduct";
 import ProductCategoryList from "./components/ProductCategoryList";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import Footer from "./components/Footer";
 
 function App () {
 
   return (
     <>
-      <h1>Brews & Bites</h1>
-
       <nav>
-        <span><NavLink to="/">Home</NavLink></span>
-        <span><NavLink to="/products">All Products</NavLink></span>
+        <span className="title">Brews & Bites</span>
+        <div className="menu-items">
+          <span><NavLink to="/">Home</NavLink></span>
+          <span><NavLink to="/products">All Products</NavLink></span>
 
-        <div className="dropdown">
-          <span className="dropdown-trigger">Categories</span>
-          <div className="dropdown-content">
-            <NavLink to="/categories/hot drinks">Hot Drinks</NavLink>
-            <NavLink to="/categories/cold drinks">Cold Drinks</NavLink>
-            <NavLink to="/categories/pastries">Pastries</NavLink>
-            <NavLink to="/categories/sandwiches">Sandwiches</NavLink>
+          <div className="dropdown">
+            <span className="dropdown-trigger">Categories</span>
+            <div className="dropdown-content">
+              <NavLink to="/categories/hot drinks">Hot Drinks</NavLink>
+              <NavLink to="/categories/cold drinks">Cold Drinks</NavLink>
+              <NavLink to="/categories/pastries">Pastries</NavLink>
+              <NavLink to="/categories/sandwiches">Sandwiches</NavLink>
+            </div>
           </div>
-        </div>
 
-        <span><NavLink to="/products/create">Add Product</NavLink></span>
-        <span><NavLink to="/about">About</NavLink></span>
+          <span><NavLink to="/products/create">Add Product</NavLink></span>
+          <span><NavLink to="/about">About</NavLink></span>
+        </div>
       </nav>
+
 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -43,6 +46,8 @@ function App () {
         <Route path="/products/:productId" element={<ProductDetailsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }

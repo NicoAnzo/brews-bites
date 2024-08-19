@@ -2,7 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  box-sizing: margin-box;
+  box-sizing: border-box; 
   color: black;
   background-color: white;
   font-synthesis: none;
@@ -17,13 +17,39 @@ body {
 }
 
 nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
   padding: 1em;
   background-color: #f8f8f8;
   border-bottom: 1px solid #ccc;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.menu-items {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.menu-items span {
+  font-size: 1.11em;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: none;
 }
 
 nav a, .dropdown-trigger {
@@ -89,7 +115,7 @@ nav a.active {
   nav {
     flex-direction: column;
     align-items: center;
-    gap: 10px; 
+    gap: 10px;
   }
 
   .dropdown-content {
@@ -102,16 +128,16 @@ nav a.active {
   nav {
     flex-direction: column;
     align-items: stretch;
-    gap: 5px; 
+    gap: 5px;
   }
 
   nav a, .dropdown-trigger {
-    padding: 0.5em 1em; 
-    font-size: 0.9em; 
+    padding: 0.5em 1em;
+    font-size: 0.9em;
   }
 
   .dropdown-content {
-    min-width: 100%; 
+    min-width: 100%;
   }
 }
 
@@ -164,20 +190,22 @@ button:focus-visible {
 .create-product-container label {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   font-weight: bold;
   color: #555;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 .create-product-container input,
 .create-product-container textarea,
-.create-product-container select {
+.create-product-container select,
+.create-product-container button {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 .create-product-container textarea {
@@ -185,14 +213,19 @@ button:focus-visible {
   min-height: 100px;
 }
 
-span {
-  font-size: 1.11em;
+.create-product-container button {
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: none;
+.create-product-container button:hover {
+  background-color: #0056b3;
 }
 
 .product-details-container {
@@ -223,11 +256,12 @@ a {
 .product-details-container img {
   width: 100%;
   height: auto;
-  max-width: 400px; 
-  border-radius: 10px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  margin: 20px 0; 
-  object-fit: cover; 
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  object-fit: cover;
+  display: block;
 }
 
 .button-group {
@@ -286,8 +320,8 @@ a {
 .product-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; 
-  justify-content:flex-start; 
+  gap: 20px;
+  justify-content: flex-start;
 }
 
 .product-card {
@@ -297,10 +331,10 @@ a {
   padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, border-color 0.3s;
-  flex-basis: calc(25% - 20px); 
-  max-width: calc(25% - 20px); 
+  flex-basis: calc(25% - 20px);
+  max-width: calc(25% - 20px);
   box-sizing: border-box;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .product-card h3 {
@@ -309,34 +343,64 @@ a {
   color: #333;
 }
 
+.product-card .price {
+  width: 30%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 auto;
+  background-color: #eee;
+}
+
 .product-card:hover {
   background-color: #e0e0e0;
   border-color: #999;
 }
 
 .product-card img {
-  width: 100%; 
-  height: 200px; 
-  object-fit: cover; 
-  border-radius: 5px; 
-  margin: 10px 0; 
-  transition: transform 0.3s ease; 
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 10px 0;
+  transition: transform 0.3s ease;
 }
 
 .product-card img:hover {
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
   .product-card {
-    flex-basis: calc(50% - 20px); 
-    max-width: calc(50% - 20px); 
+    flex-basis: calc(50% - 20px);
+    max-width: calc(50% - 20px);
   }
 }
 
 @media (max-width: 480px) {
   .product-card {
-    flex-basis: 100%; 
+    flex-basis: 100%;
     max-width: 100%;
   }
+}
+
+footer.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 5px 0;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer.footer a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer.footer a:hover {
+  color: #646cff;
 }

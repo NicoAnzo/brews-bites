@@ -36,6 +36,7 @@ function ProductDetailsPage () {
             {product && (
                 <>
                     <h1>{product.name}</h1>
+                    <img src={product.image} alt="product image" />
                     <p><strong>Description:</strong> {product.description}</p>
                     <p><strong>Stock:</strong> {product.quantity} servings</p>
                     <p><strong>Price:</strong> {product.price} €</p>

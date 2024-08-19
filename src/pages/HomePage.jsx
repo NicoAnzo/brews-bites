@@ -2,7 +2,20 @@ function HomePage () {
     
     return (
         <div>
-            <p>Home Page</p>
+            <section>
+                <h3></h3>
+                <p></p>
+            </section>
+
+            <section>
+                <h3></h3>
+                <p></p>
+            </section>
+
+            <section>
+                <h3></h3>
+                <p></p>
+            </section>
         </div>
     );
 }

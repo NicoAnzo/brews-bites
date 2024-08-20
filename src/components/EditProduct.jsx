@@ -45,11 +45,11 @@ function EditProduct () {
     return (
       <div className="create-product-container">
         <div className="form-container">
-          <h3>Edit Product</h3>
+          <h3>EDIT PRODUCT</h3>
 
           <form onSubmit={handleSubmit}>
             <label>
-              Name:
+              Name
               <input
                 type="text"
                 name="name"
@@ -60,7 +60,7 @@ function EditProduct () {
             </label>
 
             <label>
-              Image URL:
+              Image URL
               <input
                 type="url"
                 name="image"
@@ -73,7 +73,7 @@ function EditProduct () {
             </label>
 
             <label>
-              Description:
+              Description
               <textarea
                 name="description"
                 value={description}
@@ -82,7 +82,7 @@ function EditProduct () {
             </label>
 
             <label>
-              Quantity:
+              Quantity
               <input
                 type="number"
                 name="quantity"
@@ -94,7 +94,7 @@ function EditProduct () {
             </label>
 
             <label>
-              Price:
+              Price
               <input
                 type="number"
                 name="price"
@@ -107,7 +107,7 @@ function EditProduct () {
             </label>
 
             <label>
-              Category:
+              Category
               <select
                 name="category"
                 value={category}

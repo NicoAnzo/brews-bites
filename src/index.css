@@ -4,7 +4,7 @@
   font-weight: 400;
   box-sizing: border-box; 
   color: black;
-  background-color: white;
+  background-color: #f8f8f8;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -150,7 +150,7 @@ button:focus-visible {
 
 .create-product-container,
 .product-details-container {
-  padding: 20px 20px 40px 20px;
+  padding: 20px;
   background-color: #f8f8f8;
 }
 
@@ -161,6 +161,11 @@ button:focus-visible {
   background-color: #f8f8f8;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h3 {
+  font-size: 1.5em;
+  margin-top: 0;
 }
 
 .form-container form {
@@ -366,6 +371,46 @@ footer.footer a {
 
 footer.footer a:hover {
   color: #646cff;
+}
+
+.about-page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.about-section {
+  margin-bottom: 30px;
+}
+
+.section-heading {
+  font-size: 1.8em;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.section-paragraph {
+  font-size: 1.1em;
+  color: #555;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.manager-photo {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
 }
 
 @media (max-width: 768px) {

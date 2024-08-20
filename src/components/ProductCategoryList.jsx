@@ -70,7 +70,7 @@ function ProductCategoryList () {
 
     return (
         <div className="product-category-container">
-            <h2>Category: {category}</h2>
+            <h2>{category.toUpperCase()}</h2>
             {filteredProducts.length > 0 
             ? (
                 <div className="product-grid">

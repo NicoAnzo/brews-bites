@@ -30,10 +30,10 @@ function CreateProduct () {
 
     <div className="create-product-container">
       <div className="form-container">
-        <h3>Add Product</h3>
+        <h3>ADD PRODUCT</h3>
 
         <form onSubmit={handleSubmit}>
-          <label>Name:
+          <label>Name
             <input
               type="text"
               name="name"
@@ -44,7 +44,7 @@ function CreateProduct () {
             />
           </label>
 
-          <label>Image URL:
+          <label>Image URL
             <input
               type="url"
               name="image"
@@ -55,7 +55,7 @@ function CreateProduct () {
             />
           </label>
 
-          <label>Description:
+          <label>Description
             <textarea
               name="description"
               placeholder="Espresso is a shot of concentrated coffee made..."
@@ -64,7 +64,7 @@ function CreateProduct () {
             />
           </label>
 
-          <label>Quantity:
+          <label>Quantity
             <input
               type="number"
               name="quantity"
@@ -76,7 +76,7 @@ function CreateProduct () {
             />
           </label>
 
-          <label>Price:
+          <label>Price
             <input
               type="number"
               name="price"
@@ -89,7 +89,7 @@ function CreateProduct () {
             />
           </label>
 
-          <label>Category:
+          <label>Category
             <select
               name="category"
               value={category}
@@ -104,7 +104,7 @@ function CreateProduct () {
             </select>
           </label>
 
-          <button type="submit">Submit</button>
+          <button type="submit">Add</button>
         </form>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { API_URL } from "../config/api";
+import { Spinner } from '@chakra-ui/react';
 
 import defaultImageHotDrinks from "../../images/default-image-hot-drinks.webp";
 import defaulImageColdDrinks from "../../images/default-image-cold-drinks.webp";
@@ -53,7 +54,7 @@ function ProductList () {
     };
 
     if (loading) {
-        return <p>Loading products...</p>;  
+        return <Spinner thickness='4px' speed='0.65s' emptyColor='gray.200' color='blue.500' size='xl' />;  
     }
 
     if (error) {

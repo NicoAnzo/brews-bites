@@ -1,21 +1,11 @@
+
 function HomePage () {
-    
+
     return (
-        <div>
-            <section>
-                <h3></h3>
-                <p></p>
-            </section>
-
-            <section>
-                <h3></h3>
-                <p></p>
-            </section>
-
-            <section>
-                <h3></h3>
-                <p></p>
-            </section>
+        <div className="home-container">
+            <div>
+                <p className="home-description">Manage your product inventory with ease and keep your coffee shop running smoothly.</p>
+            </div>
         </div>
     );
 }

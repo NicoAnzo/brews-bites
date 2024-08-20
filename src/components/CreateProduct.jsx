@@ -27,83 +27,86 @@ function CreateProduct () {
   };
 
   return (
+
     <div className="create-product-container">
-      <h3>Add Product</h3>
+      <div className="form-container">
+        <h3>Add Product</h3>
 
-      <form onSubmit={handleSubmit}>
-        <label>Name:
-          <input
-            type="text"
-            name="name"
-            placeholder="Espresso"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </label>
+        <form onSubmit={handleSubmit}>
+          <label>Name:
+            <input
+              type="text"
+              name="name"
+              placeholder="Espresso"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </label>
 
-        <label>Image URL:
-          <input
-            type="url"
-            name="image"
-            placeholder="https://example.com/path/to/placeholder-image.jpg"
-            value={image}
-            onChange={(e) => { setImage(e.target.value) }}
-            required
-          />
-        </label>
+          <label>Image URL:
+            <input
+              type="url"
+              name="image"
+              placeholder="https://example.com/path/to/placeholder-image.jpg"
+              value={image}
+              onChange={(e) => { setImage(e.target.value) }}
+              required
+            />
+          </label>
 
-        <label>Description:
-          <textarea
-            name="description"
-            placeholder="Espresso is a shot of concentrated coffee made..."
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </label>
+          <label>Description:
+            <textarea
+              name="description"
+              placeholder="Espresso is a shot of concentrated coffee made..."
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </label>
 
-        <label>Quantity:
-          <input
-            type="number"
-            name="quantity"
-            placeholder="120"
-            min={1}
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            required
-          />
-        </label>
+          <label>Quantity:
+            <input
+              type="number"
+              name="quantity"
+              placeholder="120"
+              min={1}
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+              required
+            />
+          </label>
 
-        <label>Price:
-          <input
-            type="number"
-            name="price"
-            placeholder="2.3"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            min={0.01}  
-            step="0.01"  
-            required
-          />
-        </label>
+          <label>Price:
+            <input
+              type="number"
+              name="price"
+              placeholder="2.3"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              min={0.01}  
+              step="0.01"  
+              required
+            />
+          </label>
 
-        <label>Category:
-          <select
-            name="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            required
-          >
-            <option value="" disabled>Select a category</option>
-            <option value="hot drinks">Hot Drinks</option>
-            <option value="cold drinks">Cold Drinks</option>
-            <option value="pastries">Pastries</option>
-            <option value="sandwiches">Sandwiches</option>
-          </select>
-        </label>
+          <label>Category:
+            <select
+              name="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+            >
+              <option value="" disabled>Select a category</option>
+              <option value="hot drinks">Hot Drinks</option>
+              <option value="cold drinks">Cold Drinks</option>
+              <option value="pastries">Pastries</option>
+              <option value="sandwiches">Sandwiches</option>
+            </select>
+          </label>
 
-        <button type="submit">Submit</button>
-      </form>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }

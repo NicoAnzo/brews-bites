@@ -33,6 +33,7 @@ function ProductDetailsPage () {
 
     return (
         <div className="product-details-container">
+            <div className="details-card-container">
             {product && (
                 <>
                     <h1>{product.name}</h1>
@@ -42,13 +43,14 @@ function ProductDetailsPage () {
                     <p><strong>Price:</strong> {product.price} €</p>
                     <p><strong>Category:</strong> {product.category}</p>
                 </>
-            )}
+                )}
 
-            <div className="button-group">
-                <Link to={`/products/edit/${productId}`}>
+                <div className="button-group">
+                    <Link to={`/products/edit/${productId}`}>
                     <button className="btn-edit">Edit Product</button>
-                </Link>
-                <button className="btn-delete" onClick={deleteProduct}>Delete Product</button>
+                    </Link>
+                    <button className="btn-delete" onClick={deleteProduct}>Delete Product</button>
+                </div>
             </div>
         </div>
     );

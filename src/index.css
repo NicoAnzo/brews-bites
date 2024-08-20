@@ -9,13 +9,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 60px;
+  padding-bottom: 25px;
 }
 
 body {
   margin: 0;
   text-align: center;
-  padding-top: 40px;
-  padding-bottom: 5px;
 }
 
 nav {
@@ -116,35 +116,6 @@ nav a.active {
   display: block;
 }
 
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .dropdown-content {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-@media (max-width: 480px) {
-  nav {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 5px;
-  }
-
-  nav a, .dropdown-trigger {
-    padding: 0.5em 1em;
-    font-size: 0.9em;
-  }
-
-  .dropdown-content {
-    min-width: 100%;
-  }
-}
 
 h1 {
   font-size: 2em;
@@ -177,7 +148,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.create-product-container {
+.create-product-container,
+.product-details-container {
+  padding: 20px 20px 40px 20px;
+  background-color: #f8f8f8;
+}
+
+.form-container {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
@@ -186,13 +163,13 @@ button:focus-visible {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.create-product-container form {
+.form-container form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.create-product-container label {
+.form-container label {
   display: flex;
   flex-direction: column;
   font-weight: bold;
@@ -201,10 +178,10 @@ button:focus-visible {
   width: 100%;
 }
 
-.create-product-container input,
-.create-product-container textarea,
-.create-product-container select,
-.create-product-container button {
+.form-container input,
+.form-container textarea,
+.form-container select,
+.form-container button {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -213,12 +190,12 @@ button:focus-visible {
   box-sizing: border-box;
 }
 
-.create-product-container textarea {
+.form-container textarea {
   resize: vertical;
   min-height: 100px;
 }
 
-.create-product-container button {
+.form-container button {
   cursor: pointer;
   background-color: #007bff;
   color: white;
@@ -229,11 +206,11 @@ button:focus-visible {
   transition: background-color 0.3s ease;
 }
 
-.create-product-container button:hover {
+.form-container button:hover {
   background-color: #0056b3;
 }
 
-.product-details-container {
+.details-card-container {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -243,22 +220,22 @@ button:focus-visible {
   text-align: left;
 }
 
-.product-details-container h1 {
+.details-card-container h1 {
   font-size: 2.5em;
   margin-bottom: 20px;
 }
 
-.product-details-container p {
+.details-card-container p {
   font-size: 1.1em;
   margin: 10px 0;
 }
 
-.product-details-container p strong {
+.details-card-container p strong {
   font-weight: bold;
   color: #555;
 }
 
-.product-details-container img {
+.details-card-container img {
   width: 100%;
   height: auto;
   max-width: 400px;
@@ -266,7 +243,7 @@ button:focus-visible {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
   object-fit: cover;
-  display: block;
+  display: inline-block;
 }
 
 .button-group {
@@ -305,11 +282,7 @@ button:focus-visible {
   border-color: #ff1a1a;
 }
 
-.product-list-container {
-  padding: 20px;
-  background-color: #f8f8f8;
-}
-
+.product-list-container, 
 .product-category-container {
   padding: 20px;
   background-color: #f8f8f8;
@@ -326,7 +299,7 @@ button:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: flex-start;
+  justify-content:center;
 }
 
 .product-card {
@@ -339,7 +312,6 @@ button:focus-visible {
   flex-basis: calc(25% - 20px);
   max-width: calc(25% - 20px);
   box-sizing: border-box;
-  margin-bottom: 20px;
 }
 
 .product-card h3 {
@@ -374,20 +346,6 @@ button:focus-visible {
   transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-  .product-card {
-    flex-basis: calc(50% - 20px);
-    max-width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 480px) {
-  .product-card {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-}
-
 footer.footer {
   position: fixed;
   bottom: 0;
@@ -408,4 +366,44 @@ footer.footer a {
 
 footer.footer a:hover {
   color: #646cff;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .dropdown-content {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .product-card {
+    flex-basis: calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+  }
+
+  nav a, .dropdown-trigger {
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+  }
+
+  .dropdown-content {
+    min-width: 100%;
+  }
+
+  .product-card {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
 }

@@ -7,6 +7,7 @@ import defaulImageColdDrinks from "../../images/default-image-cold-drinks.webp";
 import defaultImagePastries from "../../images/default-image-pastries.jpeg";
 import defaulImageSandwiches from "../../images/default-image-sandwiches.jpeg";
 
+import NotFoundPage from "../pages/NotFoundPage";
 import axios from "axios";
 
 
@@ -66,6 +67,10 @@ function ProductCategoryList () {
 
     if (error) {
         return <p>{error}</p>;
+    }
+
+    if (category !== "hot drinks" && category !== "cold drinks" && category !== "pastries" && category !== "sandwiches") {
+        return <NotFoundPage />;
     }
 
     return (

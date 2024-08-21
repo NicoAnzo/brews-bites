@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { API_URL } from '../config/api'
+
 import axios from "axios";
+import NotFoundPage from "../pages/NotFoundPage";
 
 function EditProduct () {
     
@@ -11,6 +13,7 @@ function EditProduct () {
     const [quantity, setQuantity] = useState("");
     const [price, setPrice] = useState("");
     const [category, setCategory] = useState("");
+    const [error, setError] = useState(false);
 
     const { productId } = useParams();
     const navigate = useNavigate();
@@ -20,14 +23,19 @@ function EditProduct () {
         axios.get(`${API_URL}/products/${productId}`)
             .then((response) => {
                 const singleProduct = response.data;
-                setName(singleProduct.name);
-                setImage(singleProduct.image);
-                setDescription(singleProduct.description);
-                setQuantity(singleProduct.quantity);
-                setPrice(singleProduct.price);
-                setCategory(singleProduct.category);
+
+                if(singleProduct) {
+                  setName(singleProduct.name);
+                  setImage(singleProduct.image);
+                  setDescription(singleProduct.description);
+                  setQuantity(singleProduct.quantity);
+                  setPrice(singleProduct.price);
+                  setCategory(singleProduct.category);
+                } else {
+                  setError(true);
+                }
             })
-            .catch((error) => console.log(error));
+            .catch(() => setError(true));
     }, [productId]);
 
     const handleSubmit = (e) => {
@@ -41,6 +49,10 @@ function EditProduct () {
             })
             .catch((error) => console.log(error));
     };
+
+    if (error) {
+        return <NotFoundPage />;
+    }   
 
     return (
       <div className="create-product-container">

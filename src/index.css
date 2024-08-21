@@ -468,10 +468,10 @@ footer.footer-container a:hover {
 nav,
 ::placeholder,
 .about-page-container,
-.not-found-container,
+.not-found-page-container,
 .product-details-container,
 .product-list-container,
-.product-category-container,
+.product-category-container,  
 .footer-container,
 .create-product-container {
   font-family: "DM Serif Text", serif;
@@ -479,6 +479,38 @@ nav,
   font-style: normal;
 }
 
+.not-found-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+}
+
+.not-found-page-container {
+  margin: 0 auto;
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: #3d3d3d;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: #f5f5f5;
+}
+
+.not-found-page-container h3 {
+  font-size: 1.8em;
+  color: #d4a373;
+  margin-top: 0;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.not-found-page-container p {
+  font-size: 1.1em;
+  color: #d4a373;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 15px;
+}
 
 @media (max-width: 768px) {
   nav {

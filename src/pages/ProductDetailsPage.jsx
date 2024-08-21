@@ -51,7 +51,7 @@ function ProductDetailsPage () {
                         <img src={product.image} alt="product image" />
                         <p><strong>Description:</strong> {product.description}</p>
                         <p><strong>Stock:</strong> {product.quantity} servings</p>
-                        <p><strong>Price:</strong> {product.price} €</p>
+                        <p><strong>Price:</strong> {product.price} &nbsp;&nbsp;€</p>
                         <p><strong>Category:</strong> {product.category}</p>
 
                         <div className="button-group">

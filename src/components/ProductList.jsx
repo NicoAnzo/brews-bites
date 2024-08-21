@@ -70,7 +70,7 @@ function ProductList () {
                             <Link to={`/products/${product.id}`}>
                                 <h3>{product.name}</h3>
                                 <img src={product.image} alt="product image" onError={(e) => handleImageError(e, product.category)} />
-                                <p className="price">{product.price} €</p>
+                                <p className="price">{product.price} &nbsp;&nbsp;€</p>
                             </Link>
                         </div>
                     ))}

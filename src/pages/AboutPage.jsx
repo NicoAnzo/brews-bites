@@ -28,7 +28,7 @@ function AboutPage () {
                     My favorite part of the day is seeing the smiles on our customers' faces.
                 </p>
                 <p className="about-section-paragraph">
-                    Feel free to drop me a line at <a href="mailto:nanzoate@gmail.com">nanzoate@gmail.com</a> if you have any questions or just want to say hello!
+                    Feel free to drop me a line at <a href="mailto:nanzoate@gmail.com" target="_blank" rel="noopener noreferrer">nanzoate@gmail.com</a> if you have any questions or just want to say hello!
                 </p>
             </section>
         </div>

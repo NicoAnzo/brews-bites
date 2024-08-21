@@ -84,7 +84,7 @@ function ProductCategoryList () {
                             <Link to={`/products/${product.id}`}>
                                 <h3>{product.name}</h3>
                                 <img src={product.image} alt="product image" onError={handleImageError} />
-                                <p className="price">{product.price} €</p>
+                                <p className="price">{product.price} &nbsp;&nbsp;€</p>
                             </Link>
                         </div>
                     ))}

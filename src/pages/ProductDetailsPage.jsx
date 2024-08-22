@@ -3,9 +3,9 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { API_URL } from "../config/api";
 
 import defaultImageHotDrinks from "../assets/default-image-hot-drinks.webp";
-import defaulImageColdDrinks from "../assets/default-image-cold-drinks.webp";
+import defaultImageColdDrinks from "../assets/default-image-cold-drinks.webp";
 import defaultImagePastries from "../assets/default-image-pastries.jpeg";
-import defaulImageSandwiches from "../assets/default-image-sandwiches.jpeg";
+import defaultImageSandwiches from "../assets/default-image-sandwiches.jpeg";
 
 import axios from "axios";
 import NotFoundPage from "./NotFoundPage";
@@ -49,13 +49,13 @@ function ProductDetailsPage () {
                 e.target.src = defaultImageHotDrinks;
                 break;
             case "cold drinks":
-                e.target.src = defaulImageColdDrinks;
+                e.target.src = defaultImageColdDrinks;
                 break;
             case "pastries":
                 e.target.src = defaultImagePastries;
                 break;
             case "sandwiches":
-                e.target.src = defaulImageSandwiches;
+                e.target.src = defaultImageSandwiches;
                 break;
             default:
                 e.target.src = defaultImageHotDrinks; 

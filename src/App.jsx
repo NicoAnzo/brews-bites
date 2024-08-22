@@ -15,7 +15,7 @@ function App () {
   return (
       <>
         <nav>
-          <span className="logo"><img src="../../images/logo1.png" alt="logo" /></span>
+          <span className="logo"><img src="/images/logo1.png" alt="logo" /></span>
           <div className="menu-items">
             <span><NavLink to="/">Home</NavLink></span>
             <span><NavLink to="/products" end>All Products</NavLink></span>

@@ -2,10 +2,10 @@ import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { API_URL } from "../config/api";
 
-import defaultImageHotDrinks from "../../images/default-image-hot-drinks.webp";
-import defaulImageColdDrinks from "../../images/default-image-cold-drinks.webp";
-import defaultImagePastries from "../../images/default-image-pastries.jpeg";
-import defaulImageSandwiches from "../../images/default-image-sandwiches.jpeg";
+import defaultImageHotDrinks from "../assets/default-image-hot-drinks.webp";
+import defaulImageColdDrinks from "../assets/default-image-cold-drinks.webp";
+import defaultImagePastries from "../assets/default-image-pastries.jpeg";
+import defaulImageSandwiches from "../assets/default-image-sandwiches.jpeg";
 
 import NotFoundPage from "../pages/NotFoundPage";
 import axios from "axios";

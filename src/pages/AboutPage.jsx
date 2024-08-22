@@ -23,7 +23,7 @@ function AboutPage () {
                 <p className="about-section-paragraph">
                     With over 12 years of experience in the coffee industry, I started Brews & Bites with a vision of blending quality brews with a cozy atmosphere. When I'm not behind the counter, you can find me exploring new coffee trends or experimenting with recipes.
                 </p>
-                <img src="../../images/manager.jpg" alt="Nico's photo" className="about-photo" />
+                <img src="/images/manager.jpg" alt="Nico's photo" className="about-photo" />
                 <p className="about-section-paragraph">
                     My favorite part of the day is seeing the smiles on our customers' faces.
                 </p>
